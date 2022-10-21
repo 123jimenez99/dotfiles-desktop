@@ -1,72 +1,59 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
-
-### Variables
-#
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
-# Home row direction keys, like vim
+
+# Home row direction keys, just like vim
 set $left h
 set $down j
 set $up k
 set $right l
+
 # Your preferred terminal emulator
 set $term alacritty
+
 # Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu wofi
 
 ### Output configuration
  output DP-1 scale 1.25
 
+# Screenlock config
+    exec swayidle -w \
+          timeout 300 'swaylock -f -c 000000' \
+          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+          before-sleep 'swaylock -f -c 000000'
 
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
+    default_border none
+    set Font hack:mono 12
 
-default_border none
-Font hack:mono 12
-
-### Input configuration
-
-input "5426:92:Razer_Razer_DeathAdder_Elite" {
-    left_handed disabled
-    tap disabled
-    natural_scroll disabled
-    dwt enabled
-    accel_profile "flat" # disable mouse acceleration (enabled by default; to set it manually, use "ad>
-    pointer_accel 0.4 # set mouse sensitivity (between -1 and 1)
+# Input 'mice' configuration
+    input "5426:92:Razer_Razer_DeathAdder_Elite" {
+    	left_handed disabled
+    	tap disabled
+    	natural_scroll disabled
+    	dwt enabled
+   	accel_profile "flat"
+    	pointer_accel 0.4 # set mouse sensitivity (between -1 and 1)
 }
 
-seat seat0 xcursor_theme Adwaita 40
+set seat0 xcursor_theme Adwaita 40
 
-
-# Example configuration:
-
-input "type:keyboard" { 
-    xkb_layout es
-    xkb_variant ,nodeadkeys
-    xkb_options grp:alt_shift_toggle
+# Keyboard' config:
+    input "type:keyboard" {
+       xkb_layout es
+       xkb_variant ,nodeadkeys
+       xkb_options grp:alt_shift_toggle
 }
 
-gaps inner 15
-gaps outer 5
+# Gap size between windows
+    gaps inner 15
+    gaps outer 5
 
-### Key bindings
-#
+#Key bindings
 # Basics:
-#
+
     # Start a terminal
     bindsym $mod+Return exec $term
 
@@ -87,21 +74,22 @@ gaps outer 5
     # Despite the name, also works for non-floating windows.
     # Change normal to inverse to use left mouse button for resizing and right
     # mouse button for dragging.
+
     floating_modifier $mod normal
 
     # Reload the configuration file
     bindsym $mod+Shift+r reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'Wanna exit Sway?' -b 'Yes, exit sway' 'swaymsg exit'
-#
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'Wanna exit Sway?' -b 'Yes, exit sway' '	swaymsg exit'
+
 # Moving around:
-#
     # Move your focus around
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
     bindsym $mod+$up focus up
     bindsym $mod+$right focus right
+
     # Or use $mod+[up|down|left|right]
     bindsym $mod+Left focus left
     bindsym $mod+Down focus down
@@ -113,6 +101,7 @@ gaps outer 5
     bindsym $mod+Shift+$down move down
     bindsym $mod+Shift+$up move up
     bindsym $mod+Shift+$right move right
+
     # Ditto, with arrow keys
     bindsym $mod+Shift+Left move left
     bindsym $mod+Shift+Down move down
@@ -123,12 +112,9 @@ gaps outer 5
     bindsym F12 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
     bindsym F11 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% 
 
-#
 # Workspaces:
-#
-
- # Screencap
-    bindsym print exec --no-startup-id slurp | grim -g - $(xdg-user-dir PICTURES)$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
+# Screencshot config
+    bindsym print exec --no-startup-id slurp | grim -g - $(xdg-user-dir PICTURES)$(date +'sc	reenshot_%Y-%m-%d-%H%M%S.png')
 
     # Switch to workspace
     bindsym $mod+1 workspace number 1
@@ -141,6 +127,7 @@ gaps outer 5
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
+
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
@@ -152,11 +139,9 @@ gaps outer 5
     bindsym $mod+Shift+8 move container to workspace number 8
     bindsym $mod+Shift+9 move container to workspace number 9
     bindsym $mod+Shift+0 move container to workspace number 10
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
-#
+
 # Layout stuff:
-#
+
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
@@ -179,9 +164,8 @@ gaps outer 5
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
-#
+
 # Scratchpad:
-#
     # Sway has a "scratchpad", which is a bag of holding for windows.
     # You can send windows there and get them back later.
 
@@ -191,10 +175,10 @@ gaps outer 5
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
-#
+
 # Resizing containers:
-#
-mode "resize" {
+
+    mode "resize" {
     # left will shrink the containers width
     # right will grow the containers width
     # up will shrink the containers height
@@ -214,25 +198,23 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+r mode "resize"
+    bindsym $mod+r mode "resize"
 
-#
 # Status Bar:
-#
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    position bottom
-    font Hack:mono 14
- 
-    status_command while date +'%a %Y-%m-%d'; do sleep 15; done
 
+    bar {
+       position bottom
+       font Hack:mono 14
+
+    status_command while date +'%a %Y-%m-%d'; do sleep 15; done
+	
     colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
+       statusline #ffffff
+       background #323232
+       inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }
 
 exec /usr/lib/gsd-xsettings
-
 include /etc/sway/config.d/*
