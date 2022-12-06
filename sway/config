@@ -114,7 +114,7 @@ set seat0 xcursor_theme Adwaita 40
 
 # Workspaces:
 # Screencshot config
-    bindsym print exec --no-startup-id slurp | grim -g - $(xdg-user-dir PICTURES)$(date +'sc	reenshot_%Y-%m-%d-%H%M%S.png')
+    bindsym print exec --no-startup-id slurp | grim -g $(xdg-user-dir PICTURES)$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
 
     # Switch to workspace
     bindsym $mod+1 workspace number 1
