@@ -6,12 +6,8 @@ sudo apt update
 sudo apt install -y --no-install-recommends chromium-browser
 
 # Install Kmail with minimal dependencies
-echo "Installing Kmail or Thunderbird..."
+echo "Installing Kmail..."
 sudo apt install -y --no-install-recommends kmail
-
-# Install Kalendar with minimal dependencies
-echo "Installing Kalendar..."
-sudo apt install -y --no-install-recommends kalendar
 
 # Install Telegram with minimal dependencies
 echo "Installing Telegram..."
@@ -19,7 +15,7 @@ sudo apt install -y --no-install-recommends telegram-desktop
 
 # Install LibreOffice with minimal dependencies
 echo "Installing LibreOffice..."
-sudo apt install -y --no-install-recommends libreoffice
+sudo apt install -y --no-install-recommends libreoffice-writer
 
 # Install Kate with minimal dependencies
 echo "Installing Kate..."
@@ -39,7 +35,11 @@ sudo apt install -y --no-install-recommends vagrant
 
 # Install KDE desktop environment and applications
 echo "Installing KDE desktop environment and applications..."
-sudo apt install -y --no-install-recommends plasma-desktop kwin-x11 sddm konsole plasma-nm systemsettings dolphin kde-spectacle partitionmanager akregator korganizer plasma-pa kscreen
+sudo apt install -y --no-install-recommends plasma-desktop kwin-x11 sddm konsole plasma-nm systemsettings dolphin kde-spectacle partitionmanager akregator korganizer plasma-pa kscreen gwenview okular
+
+# Install misc programs with minimal dependencies
+echo "Installing misc programs..."
+sudo apt install -y --no-install-recommends mpv git
 
 # Cleanup
 echo "Cleaning up..."
