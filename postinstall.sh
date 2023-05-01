@@ -35,7 +35,7 @@ sudo apt install -y --no-install-recommends vagrant
 
 # Install KDE desktop environment and applications
 echo "Installing KDE desktop environment and applications..."
-sudo apt install -y --no-install-recommends plasma-desktop kwin-x11 sddm konsole plasma-nm systemsettings dolphin kde-spectacle partitionmanager akregator korganizer plasma-pa kscreen gwenview okular
+sudo apt install -y --no-install-recommends plasma-desktop kwin-x11 sddm konsole plasma-nm systemsettings dolphin kde-spectacle partitionmanager akregator korganizer plasma-pa kscreen gwenview okular systemsettings plasma-discover plasma-discover-backend-flatpak kwalletmanager ark
 
 # Install misc programs with minimal dependencies
 echo "Installing misc programs..."
