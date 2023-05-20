@@ -13,6 +13,8 @@ sudo apt install -y --no-install-recommends plasma-desktop kwin-x11 sddm konsole
 echo "Installing misc programs..."
 sudo apt install -y --no-install-recommends mpv git ntfs-3g mangohood mangohood:i386
 
+# Add proper scaling to chromium 
+sudo sh -c 'echo "export CHROMIUM_FLAGS=\"\$CHROMIUM_FLAGS --force-device-scale-factor=1.25\"" >> /etc/chromium.d/default-flags'
 
 # Install Wine
 sudo dpkg --add-architecture i386
@@ -38,5 +40,3 @@ sudo apt install lutris
 echo "Cleaning up..."
 sudo apt autoremove -y
 sudo apt autoclean
-
-#
