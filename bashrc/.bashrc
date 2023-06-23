@@ -1,7 +1,6 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
 alias k='kubectl'
 alias zzz='systemctl suspend'
 alias weather='curl wttr.in'
