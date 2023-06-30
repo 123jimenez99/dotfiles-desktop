@@ -90,6 +90,6 @@ alias \
 	spy="netstat -tn" \
 	paru="yay" \
 	yt="sub_link_count=2 ytfzf -c S" \
-	josh="streamlink https://www.twitch.tv/joshimuz 480p -p mpv --twitch-disable-ads" --quiet \
-	crucial="streamlink https://www.twitch.tv/crucial 480p -p mpv --twitch-disable-ads" --quiet \
-	shoori="streamlink https://www.twitch.tv/shooooori 480p -p mpv --twitch-disable-ads" --quiet \
+	josh="streamlink https://www.twitch.tv/joshimuz best -p mpv --twitch-disable-ads" --quiet \
+	crucial="streamlink https://www.twitch.tv/crucial best -p mpv --twitch-disable-ads" --quiet \
+	shoori="streamlink https://www.twitch.tv/shooooori best -p mpv --twitch-disable-ads" --quiet \
