@@ -1,1 +1,1 @@
-video_pref="bestvideo[height<=?1440][fps<=?60]+bestaudio/best"
+video_pref="bestvideo[height<=?720][fps<=?30]+bestaudio/best"
