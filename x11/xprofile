@@ -4,11 +4,11 @@
 # If you use startx/xinit like a Chad, this file will also be sourced.
 
 xrandr --dpi 120		# Set DPI. User may want to use a larger number for larger screens.
-feh --bg-scale Images/TLOU2013.jpg
+feh --bg-scale Pictures/SGI_Octane.png
 # set the background with the `setbg` script
 #xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!	# Uncomment to use Xresources colors/settings on startup
 
-autostart="picom dunst unclutter pipewire remapd"
+autostart="xcompmgr dunst unclutter pipewire remapd"
 
 for program in $autostart; do
 	pidof -s "$program" || "$program" &
