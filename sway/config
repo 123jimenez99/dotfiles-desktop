@@ -26,7 +26,7 @@ set $menu wofi
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
     default_border none
-    set Font hack:mono 12
+    set $Font hack:mono 12
 
 # Input 'mice' configuration
     input "5426:92:Razer_Razer_DeathAdder_Elite" {
@@ -38,7 +38,7 @@ set $menu wofi
     	pointer_accel 0.4 # set mouse sensitivity (between -1 and 1)
 }
 
-set seat0 xcursor_theme Adwaita 40
+set $seat0 xcursor_theme Adwaita 40
 
 # Keyboard' config:
     input "type:keyboard" {
@@ -62,6 +62,9 @@ set seat0 xcursor_theme Adwaita 40
 
     # Start your launcher
     bindsym $mod+d exec "wofi -s /wofi/style.css --show drun"
+
+    # Launch Browser
+    bindsym $mod+n exec "firefox"
 
     # Warm light
     bindsym F9 exec wlsunset -S 06:00
@@ -108,9 +111,13 @@ set seat0 xcursor_theme Adwaita 40
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
 
-    # Media keys
+    # Volume up/down
     bindsym F12 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-    bindsym F11 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% 
+    bindsym F11 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+    # Change audio profiles
+    bindsym F7 exec pactl set-card-profile alsa_card.pci-0000_00_1f.3 output:hdmi-stereo
+    bindsym F8 exec pactl set-card-profile alsa_card.pci-0000_00_1f.3 output:analog-stereo
 
 # Workspaces:
 # Screencshot config
@@ -204,8 +211,8 @@ set seat0 xcursor_theme Adwaita 40
 # Read `man 5 sway-bar` for more information about this section.
 
     bar {
-       position bottom
-       font Hack:mono 14
+       position top 
+       font :Hack 12
 
     status_command while date +'%a %Y-%m-%d'; do sleep 15; done
 	
