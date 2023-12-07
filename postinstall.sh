@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Installing misc programs..."
-sudo apt install -y --no-install-recommends mpv git streamlink ntfs-3g libblockdev-crypto2
+sudo apt install -y --no-install-recommends mpv git streamlink ntfs-3g libblockdev-crypto2 compton
 
 # Add 32-bit app support
 sudo dpkg --add-architecture i386

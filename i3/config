@@ -199,4 +199,5 @@ bar {
 }
 
 for_window [class="^.*"] border pixel 1
+exec --no-startup-id compton --backend glx --unredir-if-possible --glx-no-stencil --glx-no-rebind-pixmap --glx-swap-method buffer-age --vsync opengl-swc
 exec --no-startup-id xsetroot -solid "#8fbcbb"
