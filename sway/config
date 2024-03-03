@@ -14,7 +14,7 @@ set $term alacritty
 set $menu wofi
 
 ### Output configuration
- output DP-1 scale 1.25
+# output HDMI-A-1 scale 1.25
 
 # Screenlock config
     exec swayidle -w \
@@ -38,7 +38,7 @@ set $menu wofi
     	pointer_accel 0.4 # set mouse sensitivity (between -1 and 1)
 }
 
-set $seat0 xcursor_theme Adwaita 40
+set $seat0 xcursor_theme Adwaita 24
 
 # Keyboard' config:
     input "type:keyboard" {
@@ -70,7 +70,7 @@ set $seat0 xcursor_theme Adwaita 40
     bindsym F9 exec wlsunset -S 06:00
 
     # Wallpaper
-    output DP-1 bg #81a1c1 solid_color
+    output HDMI-A-1 bg #81a1c1 solid_color
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -84,7 +84,7 @@ set $seat0 xcursor_theme Adwaita 40
     bindsym $mod+Shift+r reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'Wanna exit Sway?' -b 'Yes, exit sway' '	swaymsg exit'
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'Wanna exit Sway?' -b 'Yes, exit sway' ' swaymsg exit'
 
 # Moving around:
     # Move your focus around
@@ -210,9 +210,9 @@ set $seat0 xcursor_theme Adwaita 40
 # Status Bar:
 # Read `man 5 sway-bar` for more information about this section.
 
-    bar {
-       position top 
-       font :Hack 12
+bar {
+    position top
+    font PixelOperator Regular 18
 
     status_command while date +'%a %Y-%m-%d'; do sleep 15; done
 	
