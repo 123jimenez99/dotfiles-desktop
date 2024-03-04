@@ -120,8 +120,7 @@ set $seat0 xcursor_theme Adwaita 24
     bindsym F8 exec pactl set-card-profile alsa_card.pci-0000_00_1f.3 output:analog-stereo
 
 # Workspaces:
-# Screencshot config
-    bindsym Print exec --no-startup-id grim -g "$(slurp)" $HOME/Pictures/$(date +'%s_grim.png') 
+    bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
     bindsym $mod+3 workspace number 3
     bindsym $mod+4 workspace number 4
@@ -204,6 +203,9 @@ set $seat0 xcursor_theme Adwaita 24
 }
     bindsym $mod+r mode "resize"
 
+# Screencshot config
+    bindsym Print exec --no-startup-id grim -g "$(slurp)" $HOME/Pictures/$(date +'%s_grim.png')
+
 # Status Bar:
 # Read `man 5 sway-bar` for more information about this section.
 
@@ -218,7 +220,6 @@ set $seat0 xcursor_theme Adwaita 24
        inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }
-
 
 exec /usr/lib/gsd-xsettings
 include /etc/sway/config.d/*
