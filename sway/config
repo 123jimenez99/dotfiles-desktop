@@ -26,7 +26,7 @@ set $menu wofi
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
     default_border none
-    set $Font hack:mono 12
+    set $Font PixelOperator 12
 
 # Input 'mice' configuration
     input "5426:92:Razer_Razer_DeathAdder_Elite" {
@@ -204,7 +204,11 @@ set $seat0 xcursor_theme Adwaita 24
     bindsym $mod+r mode "resize"
 
 # Screencshot config
-    bindsym Print exec --no-startup-id grim -g "$(slurp)" $HOME/Pictures/$(date +'%s_grim.png')
+
+    #Normal Screenshot
+    bindsym Print exec --no-startup-id grim $HOME/Pictures/$(date +'%s_grim.png')
+    #Range Screenshot
+    bindsym $mod+Print exec --no-startup-id grim -g "$(slurp)" $HOME/Pictures/$(date +'%s_grim.png')
 
 # Status Bar:
 # Read `man 5 sway-bar` for more information about this section.
