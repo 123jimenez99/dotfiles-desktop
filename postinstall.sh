@@ -5,7 +5,7 @@ sudo sh -c 'echo "APT::Install-Recommends \"false\";" > /etc/apt/apt.conf.d/99no
 
 # Install the required packages
 sudo apt update
-sudo apt install -y sway swaylock swayidle slurp grim wofi alacritty wlsunset pulseaudio mpv
+sudo apt install -y sway swaylock swayidle slurp grim wofi alacritty wlsunset pulseaudio mpv feh
 
 # Download and install the PixelOperator font
 sudo mkdir -p /usr/share/fonts/truetype/PixelOperator

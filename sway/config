@@ -121,10 +121,7 @@ set $seat0 xcursor_theme Adwaita 24
 
 # Workspaces:
 # Screencshot config
-    bindsym print exec --no-startup-id slurp | grim -g $(xdg-user-dir PICTURES)$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
-
-    # Switch to workspace
-    bindsym $mod+1 workspace number 1
+    bindsym Print exec --no-startup-id grim -g "$(slurp)" $HOME/Pictures/$(date +'%s_grim.png') 
     bindsym $mod+2 workspace number 2
     bindsym $mod+3 workspace number 3
     bindsym $mod+4 workspace number 4
