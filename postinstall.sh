@@ -5,8 +5,7 @@ sudo sh -c 'echo "APT::Install-Recommends \"false\";" > /etc/apt/apt.conf.d/99no
 
 # Install the required packages
 sudo apt update
-sudo apt install -y sway swaylock swayidle slurp grim wofi alacritty wlsunset pulseaudio mpv feh
-
+sudo apt install -y sway swaylock swayidle slurp grim wofi alacritty wlsunset pulseaudio mpv feh xwayland fonts-font-awesome
 # Download and install the PixelOperator font
 sudo mkdir -p /usr/share/fonts/truetype/PixelOperator
 sudo wget -O /usr/share/fonts/truetype/PixelOperator/PixelOperator.ttf https://github.com/ericoporto/pixel-utf8-fonts/raw/main/pixeloperator/PixelOperator.ttf
@@ -14,7 +13,7 @@ sudo fc-cache -f -v
 
 # Clone the dotfiles and place the basic ones 
 git clone https://github.com/123jimenez99/dotfiles-desktop /tmp/dotfiles-desktop
-mv /tmp/dotfiles-desktop/{alacritty,sway,wofi} "$HOME/.config/"
+mv /tmp/dotfiles-desktop/{alacritty,sway,wofi,waybar} "$HOME/.config/"
 
 # Detect the GPU and install hardware-video-decoding packages 
 check_gpu_vendor() {
